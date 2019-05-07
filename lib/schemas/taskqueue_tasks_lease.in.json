@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "groupByTag": {
+            "type": "boolean"
+        },
+        "leaseSecs": {
+            "required": true,
+            "type": "integer"
+        },
+        "numTasks": {
+            "required": true,
+            "type": "integer"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "tag": {
+            "type": "string"
+        },
+        "taskqueue": {
+            "required": true,
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

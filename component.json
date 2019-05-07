@@ -1,0 +1,191 @@
+{
+    "title": "TaskQueue",
+    "description": "Accesses a Google App Engine Pull Task Queue over REST.",
+    "docsUrl": "https://developers.google.com/appengine/docs/python/taskqueue/rest",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/taskqueue/v1beta2/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/taskqueue/v1beta2/projects",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 implicit authentication",
+                "viewClass": "OAuthFieldView"
+            },
+            "Oauth2c": {
+                "label": "Oauth 2.0 accessCode authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://accounts.google.com/o/oauth2/token"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "taskqueue_taskqueues_get": {
+            "main": "./lib/actions/taskqueue_taskqueues_get.js",
+            "title": "Get detailed information about a TaskQueue.",
+            "description": "Get detailed information about a TaskQueue.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_taskqueues_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_list": {
+            "main": "./lib/actions/taskqueue_tasks_list.js",
+            "title": "List Tasks in a TaskQueue",
+            "description": "List Tasks in a TaskQueue",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_insert": {
+            "main": "./lib/actions/taskqueue_tasks_insert.js",
+            "title": "Insert a new task in a TaskQueue",
+            "description": "Insert a new task in a TaskQueue",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_lease": {
+            "main": "./lib/actions/taskqueue_tasks_lease.js",
+            "title": "Lease 1 or more tasks from a TaskQueue.",
+            "description": "Lease 1 or more tasks from a TaskQueue.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_lease.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_delete": {
+            "main": "./lib/actions/taskqueue_tasks_delete.js",
+            "title": "Delete a task from a TaskQueue.",
+            "description": "Delete a task from a TaskQueue.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_get": {
+            "main": "./lib/actions/taskqueue_tasks_get.js",
+            "title": "Get a particular task from a TaskQueue.",
+            "description": "Get a particular task from a TaskQueue.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_patch": {
+            "main": "./lib/actions/taskqueue_tasks_patch.js",
+            "title": "Update tasks that are leased out of a TaskQueue. This method supports patch semantics.",
+            "description": "Update tasks that are leased out of a TaskQueue. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "taskqueue_tasks_update": {
+            "main": "./lib/actions/taskqueue_tasks_update.js",
+            "title": "Update tasks that are leased out of a TaskQueue.",
+            "description": "Update tasks that are leased out of a TaskQueue.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/taskqueue_tasks_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

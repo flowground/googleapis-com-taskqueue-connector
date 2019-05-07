@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "taskqueue": {
+            "required": true,
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "enqueueTimestamp": {
+                    "description": "Time (in seconds since the epoch) at which the task was enqueued.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Name of the task.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "taskqueues#task",
+                    "description": "The kind of object returned, in this case set to task.",
+                    "type": "string"
+                },
+                "leaseTimestamp": {
+                    "description": "Time (in seconds since the epoch) at which the task lease will expire. This value is 0 if the task isnt currently leased out to a worker.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "payloadBase64": {
+                    "description": "A bag of bytes which is the task payload. The payload on the JSON side is always Base64 encoded.",
+                    "type": "string"
+                },
+                "queueName": {
+                    "description": "Name of the queue that the task is in.",
+                    "type": "string"
+                },
+                "retry_count": {
+                    "description": "The number of leases applied to this task.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tag": {
+                    "description": "Tag for the task, could be used later to lease tasks grouped by a specific tag.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

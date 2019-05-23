@@ -1665,12 +1665,13 @@
                 "description": "Oauth 2.0 implicit authentication",
                 "type": "oauth2",
                 "flows": {
-                    "implicit": {
+                    "authorizationCode": {
                         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
                         "scopes": {
                             "https://www.googleapis.com/auth/taskqueue": "Manage your Tasks and Taskqueues",
                             "https://www.googleapis.com/auth/taskqueue.consumer": "Consume Tasks from your Taskqueues"
-                        }
+                        },
+                        "tokenUrl": "https://www.googleapis.com/oauth2/v4/token"
                     }
                 }
             },
